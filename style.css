@@ -1,0 +1,240 @@
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Estilo geral */
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #f5f5f5;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    overflow: hidden;
+}
+
+/* Barra superior (AppBar) */
+.app-bar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: #6200ee;
+    color: white;
+    padding: 15px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+}
+
+h1 {
+    margin: 0;
+    font-size: 24px;
+    font-weight: 500;
+}
+
+/* Container principal */
+.app-container {
+    width: 100%;
+    max-width: 500px;
+    background-color: white;
+    border-radius: 16px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    margin-top: 80px; /* Para compensar a AppBar */
+    padding: 20px;
+    position: relative;
+}
+
+/* Lista de técnicos (estilo de cartões) */
+.technician-list {
+    max-height: 450px;
+    overflow-y: auto;
+}
+
+.technician-list ul {
+    list-style: none;
+    padding: 0;
+}
+
+.technician-list li {
+    background-color: white;
+    padding: 15px;
+    margin-bottom: 10px;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.technician-list li:hover {
+    transform: translateY(-3px);
+}
+
+.technician-list img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+
+/* Detalhes do técnico */
+.technician-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.technician-details img {
+    max-width: 100px;
+    border-radius: 50%;
+    margin-bottom: 15px;
+}
+
+.bench-points {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    max-width: 250px;
+    margin: 10px 0;
+}
+
+.infractions-container {
+    margin: 20px 0;
+    width: 100%;
+}
+
+/* Botões */
+button {
+    background-color: #6200ee;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+button:disabled {
+    background-color: #cccccc;
+}
+
+button:hover:not(:disabled) {
+    background-color: #3700b3;
+}
+
+.back-btn {
+    margin-top: 20px;
+}
+
+/* Botão flutuante (FAB) */
+.fab {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background-color: #6200ee;
+    color: white;
+    border: none;
+    font-size: 24px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background-color 0.2s ease;
+}
+
+.fab:hover {
+    background-color: #3700b3;
+}
+
+/* Lista de infrações recolhível */
+h3 {
+    cursor: pointer;
+    color: #6200ee;
+    margin-bottom: 10px;
+}
+
+h3 span {
+    font-weight: bold;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+li {
+    background-color: #ffcccc;
+    padding: 5px;
+    margin-bottom: 5px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+select {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+/* Modal para adicionar técnico */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-content {
+    background-color: white;
+    margin: 10% auto;
+    padding: 20px;
+    border-radius: 10px;
+    max-width: 400px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    position: relative;
+}
+
+.close {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    color: #333;
+    font-size: 24px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close:hover {
+    color: #6200ee;
+}
+
+input[type="text"], input[type="number"], input[type="url"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    outline: none;
+}
+
+input[type="text"]:focus, input[type="number"]:focus, input[type="url"]:focus {
+    border-color: #6200ee;
+}
+
