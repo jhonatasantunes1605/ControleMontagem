@@ -99,11 +99,11 @@ h1 {
 
 .bench-points {
     display: flex;
-    justify-content: space-around;
-    width: 100%;
-    max-width: 250px;
-    margin: 10px 0;
+    flex-direction: column; /* Coloca os itens um abaixo do outro */
+    align-items: center; /* Centraliza os itens horizontalmente */
+    margin-top: 10px; /* Espaçamento acima */
 }
+
 
 .infractions-container {
     margin: 20px 0;
@@ -236,5 +236,51 @@ input[type="text"], input[type="number"], input[type="url"] {
 
 input[type="text"]:focus, input[type="number"]:focus, input[type="url"]:focus {
     border-color: #6200ee;
+}
+#technician-list {
+    list-style: none;
+    padding: 0;
+}
+
+#technician-list li {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+    border: 1px solid #ddd;
+    margin-bottom: 10px;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+}
+
+#technician-list img {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    margin-right: 15px;
+}
+
+#technician-list .technician-info {
+    text-align: center;
+    flex-grow: 1;
+}
+
+#technician-list .technician-points {
+    font-size: 20px;
+    font-weight: bold;
+    text-align: left;
+    margin-right: 15px;
+}
+
+#technician-list .green {
+    color: green;
+}
+
+#technician-list .yellow {
+    color: yellow;
+}
+
+#technician-list .red {
+    color: red;
 }
 

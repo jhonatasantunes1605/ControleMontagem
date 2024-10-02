@@ -32,7 +32,7 @@ const TechnicianManager = (() => {
                 bench: tech.get('bench'),
                 points: tech.get('points'),
                 faults: tech.get('faults') || [], // Garantir que sempre seja um array
-                photo: tech.get('photo') || 'https://via.placeholder.com/120' // Foto padrão se não houver
+                photo: tech.get('photo') || 'https://cdn-icons-png.flaticon.com/512/1028/1028931.png' // Foto padrão se não houver
             }));
         } catch (error) {
             console.error('Erro ao buscar técnicos:', error);
@@ -40,21 +40,37 @@ const TechnicianManager = (() => {
     };
 
     const initializeTechnicianList = () => {
-        const technicianList = document.getElementById('technicianList');
-        technicianList.innerHTML = ''; // Limpa a lista para re-renderizar
-        technicians.forEach((tech, index) => {
-            const li = document.createElement('li');
-            li.innerHTML = `
-                <img src="${tech.photo}" alt="Foto de ${tech.name}">
-                <div>
-                    <span>${tech.name} (${tech.bench})</span><br>
-                    <span>Pontos: ${tech.points}</span>
-                </div>
-            `;
-            li.onclick = () => selectTechnician(index);
-            technicianList.appendChild(li);
-        });
-    };
+    const technicianList = document.getElementById('technician-list');
+    technicianList.innerHTML = '';
+
+    technicians.forEach((tech, index) => {
+        const li = document.createElement('li');
+
+        // Define a cor dos pontos com base no valor
+        let pointsClass = 'green';
+        if (tech.points >= 4 && tech.points <= 7) {
+            pointsClass = 'yellow';
+        } else if (tech.points <= 3) {
+            pointsClass = 'red';
+        }
+
+        li.innerHTML = `
+            <img src="${tech.photo}" alt="Foto de ${tech.name}">
+            <div class="technician-info">
+                <span>${tech.name}</span>
+            </div>
+            <div class="technician-points ${pointsClass}">
+                ${tech.points}
+            </div>
+        `;
+
+        // Adiciona o evento de clique para selecionar o técnico
+        li.onclick = () => selectTechnician(index);
+
+        technicianList.appendChild(li);
+    });
+};
+
 
     const populateInfractionSelect = () => {
         const infractionSelect = document.getElementById('infraction');
@@ -133,42 +149,43 @@ const TechnicianManager = (() => {
     };
 
     const addTechnician = async () => {
-        const name = sanitize(prompt("Nome do Técnico:"));
-        if (!name) {
-            alert('O nome do técnico é obrigatório.');
-            return;
-        }
-        const bench = sanitize(prompt("Banca do Técnico:"));
-        if (!bench) {
-            alert('A banca do técnico é obrigatória.');
-            return;
-        }
+    const name = sanitize(prompt("Nome do Técnico:"));
+    if (!name) {
+        alert('O nome do técnico é obrigatório.');
+        return;
+    }
+    const bench = sanitize(prompt("Banca do Técnico:"));
+    if (!bench) {
+        alert('A banca do técnico é obrigatória.');
+        return;
+    }
+    const photo = prompt("URL da foto do Técnico (opcional):") || 'https://cdn-icons-png.flaticon.com/512/1028/1028931.png';
 
-        const newTechnician = {
-            name: name,
-            bench: bench,
-            points: 10,
-            faults: [],
-            photo: 'https://via.placeholder.com/120'
-        };
-        technicians.push(newTechnician);
-        initializeTechnicianList();
-
-        // Salvar no Parse
-        const technician = new Technician();
-        technician.set('name', name);
-        technician.set('bench', bench);
-        technician.set('points', 10);
-        technician.set('faults', []);
-        technician.set('photo', 'https://via.placeholder.com/120');
-
-        try {
-            await technician.save();
-            alert('Técnico adicionado com sucesso!');
-        } catch (error) {
-            console.error('Erro ao adicionar técnico:', error);
-        }
+    const newTechnician = {
+        name: name,
+        bench: bench,
+        points: 10,
+        faults: [],
+        photo: photo // Usa o URL fornecido ou a foto padrão
     };
+    technicians.push(newTechnician);
+    initializeTechnicianList();
+
+    // Salvar no Parse
+    const technician = new Technician();
+    technician.set('name', name);
+    technician.set('bench', bench);
+    technician.set('points', 10);
+    technician.set('faults', []);
+    technician.set('photo', photo);
+
+    try {
+        await technician.save();
+        alert('Técnico adicionado com sucesso!');
+    } catch (error) {
+        console.error('Erro ao adicionar técnico:', error);
+    }
+};
 
     const backToList = () => {
         document.getElementById('technician-info').style.display = 'none';
