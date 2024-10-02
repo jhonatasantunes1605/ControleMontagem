@@ -277,7 +277,7 @@ input[type="text"]:focus, input[type="number"]:focus, input[type="url"]:focus {
 }
 
 #technician-list .yellow {
-    color: yellow;
+    color: rgb(236, 233, 19);
 }
 
 #technician-list .red {
