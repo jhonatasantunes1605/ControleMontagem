@@ -3,48 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gerenciador de Técnicos</title>
+    <title>Página Inicial</title>
     <link rel="stylesheet" href="style.css">
-    <script src="https://unpkg.com/parse/dist/parse.min.js"></script> <!-- Parse SDK -->
 </head>
 <body>
     <div class="app-bar">
-        <h1>Gerenciador de Técnicos</h1>
+        <h1>Ferramentas Montagem</h1>
     </div>
-    
+
     <div class="app-container">
-        <div id="technician-list" class="technician-list">
-            <ul id="technicianList"></ul>
-        </div>
-
-        <div id="technician-info" class="technician-info" style="display: none;">
-            <div class="technician-details">
-    <img id="technicianPhoto" src="" alt="Foto do Técnico">
-    <h2 id="technicianName"></h2>
-    <div class="bench-points">
-        <p>Bancada: <span id="technicianBench"></span></p>
-        <p>Pontos: <span id="technicianPoints"></span></p>
+        <button class="nav-button" onclick="window.location.href='technician.html'">QC Técnicos</button>
+        <button class="nav-button" onclick="window.location.href='pendencias.html'">Pendências</button>
     </div>
-</div>
-
-            <div class="infractions-container">
-                <label for="infraction">Selecione uma infração:</label>
-                <select id="infraction">
-                    <option value="">Selecione uma infração</option>
-                </select>
-                <button disabled onclick="TechnicianManager.addInfraction()">Adicionar Infração</button>
-            </div>
-
-            <h3 onclick="TechnicianManager.toggleInfractions()">Infrações <span id="toggleIndicator">[+]</span></h3>
-            <ul id="infractionList" style="display: none;"></ul>
-
-            <button class="back-btn" onclick="TechnicianManager.backToList()">Home</button>
-        </div>
-    </div>
-
-    <!-- Botão flutuante de ação -->
-    <button class="fab" onclick="TechnicianManager.addTechnician()" aria-label="Adicionar Técnico">+</button>
-
-    <script src="script.js"></script>
 </body>
 </html>

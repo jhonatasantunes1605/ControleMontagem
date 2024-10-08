@@ -283,4 +283,367 @@ input[type="text"]:focus, input[type="number"]:focus, input[type="url"]:focus {
 #technician-list .red {
     color: red;
 }
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
+/* Estilo geral */
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #f5f5f5;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    overflow: hidden;
+}
+
+/* Barra superior (AppBar) */
+.app-bar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: #6200ee;
+    color: white;
+    padding: 15px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+}
+
+h1 {
+    margin: 0;
+    font-size: 24px;
+    font-weight: 500;
+}
+
+/* Container principal */
+.app-container {
+    width: 100%;
+    max-width: 500px;
+    background-color: white;
+    border-radius: 16px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    margin-top: 80px;
+    padding: 20px;
+    position: relative;
+    text-align: center;
+}
+
+/* Botões de navegação */
+.nav-button {
+    width: 100%;
+    padding: 15px;
+    margin-bottom: 15px;
+    background-color: #6200ee;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 18px;
+}
+
+.nav-button:hover {
+    background-color: #3700b3;
+}
+
+/* Lista de técnicos */
+.technician-list {
+    max-height: 450px;
+    overflow-y: auto;
+}
+
+.technician-list ul {
+    list-style: none;
+    padding: 0;
+}
+
+.technician-list li {
+    background-color: white;
+    padding: 15px;
+    margin-bottom: 10px;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.technician-list li:hover {
+    transform: translateY(-3px);
+}
+
+.technician-list img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+
+/* Detalhes do técnico */
+.technician-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.technician-details img {
+    max-width: 100px;
+    border-radius: 50%;
+    margin-bottom: 15px;
+}
+
+.bench-points {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.infractions-container {
+    margin: 20px 0;
+    width: 100%;
+}
+
+/* Botões */
+button {
+    background-color: #6200ee;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+button:disabled {
+    background-color: #cccccc;
+}
+
+button:hover:not(:disabled) {
+    background-color: #3700b3;
+}
+
+.back-btn {
+    margin-top: 20px;
+}
+
+/* Botão flutuante */
+.fab {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background-color: #6200ee;
+    color: white;
+    border: none;
+    font-size: 24px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background-color 0.2s ease;
+}
+
+.fab:hover {
+    background-color: #3700b3;
+}
+/* Botões de navegação */
+.nav-button {
+    width: 100%;
+    padding: 15px;
+    margin-bottom: 15px;
+    background-color: #6200ee;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 18px;
+}
+
+.nav-button:hover {
+    background-color: #3700b3;
+}
+
+/* Botão de voltar */
+.back-btn {
+    margin-top: 20px;
+    width: 100%;
+    padding: 10px;
+    background-color: #6200ee;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.back-btn:hover {
+    background-color: #3700b3;
+}
+
+/* Botão flutuante */
+.fab {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background-color: #6200ee;
+    color: white;
+    border: none;
+    font-size: 24px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background-color 0.2s ease;
+}
+
+.fab:hover {
+    background-color: #3700b3;
+}
+/* Botão de voltar com ícone de casa */
+.home-btn {
+    position: fixed;
+    bottom: 100px; /* Acima do botão flutuante */
+    right: 20px;
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background-color: #6200ee;
+    color: white;
+    border: none;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background-color 0.2s ease;
+}
+
+.home-btn img {
+    width: 24px;
+    height: 24px;
+}
+
+.home-btn:hover {
+    background-color: #3700b3;
+}
+
+/* Botão flutuante */
+.fab {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background-color: #6200ee;
+    color: white;
+    border: none;
+    font-size: 24px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background-color 0.2s ease;
+}
+
+.fab:hover {
+    background-color: #3700b3;
+}
+/* Estilo para o formulário de pendências */
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 8px;
+}
+
+.form-group input[type="text"], 
+.form-group textarea, 
+.form-group select {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.form-group textarea {
+    resize: vertical;
+}
+
+.form-actions {
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.submit-btn, .reset-btn {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #6200ee;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.submit-btn:hover, .reset-btn:hover {
+    background-color: #3700b3;
+}
+
+.reset-btn {
+    background-color: #ff4081;
+}
+
+.reset-btn:hover {
+    background-color: #c2185b;
+}
+
+/* Estilo para o botão de voltar com ícone de casinha */
+.home-btn {
+    position: fixed;
+    bottom: 100px; /* Acima do botão flutuante */
+    right: 20px;
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background-color: #6200ee;
+    color: white;
+    border: none;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background-color 0.2s ease;
+}
+
+.home-btn img {
+    width: 24px;
+    height: 24px;
+}
+
+.home-btn:hover {
+    background-color: #3700b3;
+}

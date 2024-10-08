@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastrar Pendências</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/parse/3.3.0/parse.min.js"></script>
+<script src="pendencia.js"></script>
+</head>
+<body>
+    <div class="app-bar">
+        <h1>Cadastrar Pendência</h1>
+    </div>
+
+    <div class="app-container">
+        <form id="pendenciaForm">
+            <!-- Campo para NF -->
+            <div class="form-group">
+                <label for="nfInput">Nota Fiscal (NF):</label>
+                <input type="text" id="nfInput" name="nfInput" placeholder="Digite a Nota Fiscal" required>
+            </div>
+
+            <!-- Campo para Observações -->
+            <div class="form-group">
+                <label for="observacoesInput">Observações:</label>
+                <textarea id="observacoesInput" name="observacoesInput" rows="4" placeholder="Digite as observações" required></textarea>
+            </div>
+
+            <!-- Dropdown para Pendência/Defeito -->
+            <div class="form-group">
+                <label for="tipoInput">Tipo:</label>
+                <select id="tipoInput" name="tipoInput" required>
+                    <option value="Pendencia">Pendência</option>
+                    <option value="Defeito">Defeito</option>
+                </select>
+            </div>
+
+            <!-- Botões de ação -->
+            <div class="form-actions">
+                <button type="submit" class="submit-btn">Salvar</button>
+                <button type="reset" class="reset-btn">Limpar</button>
+            </div>
+        </form>
+    </div>
+
+    <!-- Botão Voltar para Home com ícone de casinha -->
+    <button class="home-btn" onclick="window.location.href='index.html'">
+        <img src="./icons8-casa-50.png" alt="Ícone de Casa">
+    </button>
+
+    <script src="pendencia.js"></script>
+</body>
+</html>

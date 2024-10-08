@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerenciador de Técnicos</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://unpkg.com/parse/dist/parse.min.js"></script> <!-- Parse SDK -->
+</head>
+<body>
+    <div class="app-bar">
+        <h1>Gerenciador de Técnicos</h1>
+    </div>
+    
+    <div class="app-container">
+        <div id="technician-list" class="technician-list">
+            <ul id="technicianList"></ul>
+        </div>
+
+        <div id="technician-info" class="technician-info" style="display: none;">
+            <div class="technician-details">
+                <img id="technicianPhoto" src="" alt="Foto do Técnico">
+                <h2 id="technicianName"></h2>
+                <div class="bench-points">
+                    <p>Bancada: <span id="technicianBench"></span></p>
+                    <p>Pontos: <span id="technicianPoints"></span></p>
+                </div>
+            </div>
+
+            <div class="infractions-container">
+                <label for="infraction">Selecione uma infração:</label>
+                <select id="infraction">
+                    <option value="">Selecione uma infração</option>
+                </select>
+                <button disabled onclick="TechnicianManager.addInfraction()">Adicionar Infração</button>
+            </div>
+
+            <h3 onclick="TechnicianManager.toggleInfractions()">Infrações <span id="toggleIndicator">[+]</span></h3>
+            <ul id="infractionList" style="display: none;"></ul>
+
+            <button class="back-btn" onclick="TechnicianManager.backToList()">Voltar para Técnicos</button>
+        </div>
+    </div>
+
+    <!-- Botão Voltar com ícone de casinha -->
+    <button class="home-btn" onclick="window.location.href='index.html'">
+        <img src="./icons8-casa-50.png" alt="Ícone de Casa">
+    </button>
+
+    <!-- Botão flutuante para adicionar técnico -->
+    <button class="fab" onclick="TechnicianManager.addTechnician()" aria-label="Adicionar Técnico">+</button>
+
+    <script src="script.js"></script>
+</body>
+</html>
