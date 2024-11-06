@@ -3,17 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Página Inicial</title>
+    <title>Qualitá Ferramentas</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
+    <!-- Adicionar favicon -->
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
 </head>
 <body>
     <div class="app-bar">
-        <h1>Ferramentas Montagem</h1>
+        <h1>Ferramentas Qualitá</h1>
     </div>
 
     <div class="app-container">
-        <button class="nav-button" onclick="window.location.href='technician.html'">QC Técnicos</button>
-        <button class="nav-button" onclick="window.location.href='pendencias.html'">Pendências</button>
+        <button class="nav-button" onclick="window.location.href='technician.html'">
+            <i class="fas fa-tools"></i> QC Técnicos
+        </button>
+        <button class="nav-button" onclick="window.location.href='pendencias.html'">
+            <i class="fas fa-tasks"></i> Pendências
+        </button>
+        <button class="nav-button" onclick="window.location.href='meus_dados.html'">
+            <i class="fas fa-user"></i> Meus Dados (Técnico)
+        </button>
     </div>
 </body>
 </html>
